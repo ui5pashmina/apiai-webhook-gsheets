@@ -42,7 +42,7 @@ fs.readFile('client_secret.json', function processClientSecrets(err, content) {
   // Google Sheets API.
 
   authorize(JSON.parse(content), createTicket);
-  //authorize(JSON.parse(content), getTicketList);
+  authorize(JSON.parse(content), getTicketList);
 });
 
 /**
