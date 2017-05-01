@@ -1,4 +1,4 @@
-# apiai-webhook-gsheets
+# apiai-webhook-gsheets - Integrate Google Sheets API v4 with NodeJS consuming webhook via API.ai
 
 A barebones Node.js app using [Express 4](http://expressjs.com/).
 
