@@ -118,7 +118,7 @@ function storeToken(token) {
 
 /**
  * Print the ticket classified from API.AI in a sample spreadsheet:
- * https://docs.google.com/spreadsheets/d/1zqJZwZCFB3YNxNh4NBGh1-O1A39XDqtm_HstBOFyJO8/edit
+ * https://docs.google.com/spreadsheets/d/<your_spreadsheet_id>/edit
  */
 function createTicket(auth) {
   var sheets = google.sheets('v4');
@@ -128,7 +128,7 @@ function createTicket(auth) {
 
     sheets.spreadsheets.values.append({
         auth: auth,
-        spreadsheetId: '1zqJZwZCFB3YNxNh4NBGh1-O1A39XDqtm_HstBOFyJO8',
+        spreadsheetId: '<your_spreadsheet_id>',
         range: 'PA Ticket!all',
         valueInputOption: 'USER_ENTERED',
         includeValuesInResponse: true,
@@ -155,7 +155,7 @@ function createTicket(auth) {
 
 /**
  * Print the ticket classified from API.AI in a sample spreadsheet:
- * https://docs.google.com/spreadsheets/d/1zqJZwZCFB3YNxNh4NBGh1-O1A39XDqtm_HstBOFyJO8/edit
+ * https://docs.google.com/spreadsheets/d/<your_spreadsheet_id>/edit
  */
 function getTicketList(auth) {
   var sheets = google.sheets('v4');
@@ -163,7 +163,7 @@ function getTicketList(auth) {
   restService.get('/get_ticket', (req, res)=>{
     sheets.spreadsheets.values.get({
         auth: auth,
-        spreadsheetId: '1zqJZwZCFB3YNxNh4NBGh1-O1A39XDqtm_HstBOFyJO8',
+        spreadsheetId: '<your_spreadsheet_id>',
         range: 'PA Ticket!A:B',
     }, function(err, response) {
         if (err) {
