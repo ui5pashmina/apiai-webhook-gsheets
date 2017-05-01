@@ -124,31 +124,45 @@ function createTicket(auth) {
   var sheets = google.sheets('v4');
   
   restService.post('/create_ticket', (req, res)=>{
-    var res_speech = req.body.result && req.body.result.parameters && req.body.result.parameters.issue_type ? req.body.result.parameters.echoText : "Seems like some problem. Speak again.";
+    //var res_speech = req.body.result && req.body.result.parameters && req.body.result.parameters.issue_type ? req.body.result.parameters.echoText : "I, speech again.";
 
-    sheets.spreadsheets.values.append({
-        auth: auth,
-        spreadsheetId: '<your_spreadsheet_id>',
-        range: 'PA Ticket!all',
-        valueInputOption: 'USER_ENTERED',
-        includeValuesInResponse: true,
-        resource: {
-            values:  [[req.body.result.resolvedQuery, req.body.result.parameters.issue_module]]
-        }
+    if(req.body.result.parameters.issue_type == "" || req.body.result.parameters.issue_module == ""){
+      var speech_text = "Something went wrong! Please speak again?";
+      var display_text = "Something went wrong! Please speak again?";
 
-    }, function(err, response) {
-        if (err) {
-         console.log('The API returned an error: ' + err);
-        return;
+      return res.json({
+        speech: speech_text,
+        displayText: display_text,
+        source: 'apiai-google-sheets-webhook'   
+      });      
+
+    }else{
+      var speech_text = "Ticket was classified successfully! Please check the new entry at URL: https://docs.google.com/spreadsheets/d/<your_spreadsheet_id>/edit";
+      var display_text = "Ticket was classified successfully! Please check the new entry at URL: https://docs.google.com/spreadsheets/d/<your_spreadsheet_id>/edit";        
+
+      sheets.spreadsheets.values.append({
+          auth: auth,
+          spreadsheetId: '<your_spreadsheet_id>',
+          range: 'PA Ticket!all',
+          valueInputOption: 'USER_ENTERED',
+          includeValuesInResponse: true,
+          resource: {
+              values:  [[req.body.result.resolvedQuery, req.body.result.parameters.issue_module]]
+          }
+
+      }, function(err, response) {
+          if (err) {
+          console.log('The API returned an error: ' + err);
+          return;
+      }        
+          return res.json({
+            speech: speech_text,
+            displayText: display_text,
+            source: 'apiai-google-sheets-webhook'   
+          });
+      });
+    
     }
-        var res_text = "Ticket Classified! Please check new append entry at the URL: https://docs.google.com/spreadsheets/d/<your_spreadsheet_id>/edit"
-        return res.json({
-         speech: res_text,
-         displayText: res_text,
-         source: 'apiai-google-sheets-webhook'   
-        });
-
-    });
   });
   
 }
