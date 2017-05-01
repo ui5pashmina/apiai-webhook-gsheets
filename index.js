@@ -1,5 +1,3 @@
-'use strict';
-
 var fs         = require('fs');
 var readline   = require('readline');
 var google     = require('googleapis');
@@ -191,7 +189,7 @@ function getTicketList(auth) {
 }
 
 // Server up PORT listen
-restService.listen((process.env.PORT || 4000), function() {
+restService.listen((process.env.PORT || 5000), function() {
     console.log("Server up and listening");
 });
 
