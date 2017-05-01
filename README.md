@@ -33,6 +33,7 @@ or
 For more information about how to write Google Spreadsheets using API.ai consuming WebHook Node.js on Heroku, see these prerequisites:
 
 - [Google Consle Developer -> Enable Google Sheets API and get credential for NodeJS Application](https://console.developers.google.com)
+- [Google Console Developer -> How to get OAuth 2.0 Playground](https://developers.google.com/oauthplayground)
 - [Google Sheets -> Fetch "spreadsheetID" from your Sheet](https://docs.google.com/spreadsheets/u/0/)
 - [Github -> Deploy NodeJS Google Spreadsheets Data API Code application](https://github.com/ui5pashmina/API.ai-Heroku-NodeJS-GSheets)
 - [Heroku -> Push NodeJS application on Heroku (PaaS) to run the Web Server](https://www.heroku.com/)
