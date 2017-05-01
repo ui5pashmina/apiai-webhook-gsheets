@@ -7,12 +7,14 @@ var googleAuth = require('google-auth-library');
 const express = require('express');
 const bodyParser = require('body-parser');
 const restService = express();
+const http = require('http');
 
 restService.use(bodyParser.urlencoded({
     extended: true
 }));
 
 restService.use(bodyParser.json());
+restService.set('port', process.env.PORT || 80);
 
 // If modifying these scopes, delete your previously saved credentials
 // at ~/.credentials/sheets.googleapis.com-nodejs-quickstart.json
@@ -188,9 +190,10 @@ function getTicketList(auth) {
 
 }
 
-// Server up PORT listen
-restService.listen((process.env.PORT || 5000), function() {
-    console.log("Server up and listening");
-});
+// Server HTTP listener
+   server = http.createServer(restService);
+// restService.listen((process.env.PORT || 5000), function() {
+//     console.log("Server up and listening");
+// });
 
 
