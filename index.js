@@ -141,7 +141,7 @@ function createTicket(auth) {
          console.log('The API returned an error: ' + err);
         return;
     }
-        var res_text = "Ticket Classificato! Puoi controllare l'inserimento all'indirizzo: https://docs.google.com/spreadsheets/d/1zqJZwZCFB3YNxNh4NBGh1-O1A39XDqtm_HstBOFyJO8/edit"
+        var res_text = "Ticket Classified! Please check new append entry at the URL: https://docs.google.com/spreadsheets/d/<your_spreadsheet_id>/edit"
         return res.json({
          speech: res_text,
          displayText: res_text,
