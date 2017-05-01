@@ -8,17 +8,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const restService = express();
 
-// var client_key = '319581784556-s0g3ado0l1ipbl88avtkn0f81b6mr77u.apps.googleusercontent.com',
-//     secret_key = 'dCFxkJfrrrRULcyZD6Og81M0',
-//     redirect_uri = 'urn:ietf:wg:oauth:2.0:oob',
-//     oauth2Client = new OAuth2Client(client_key, secret_key, redirect_uri);
-
-
-// var url = oauth2Client.generateAuthUrl({
-//   access_type: 'online', 
-//   scope: 'https://www.googleapis.com/auth/spreadsheets' 
-// });
-
 restService.use(bodyParser.urlencoded({
     extended: true
 }));
