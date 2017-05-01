@@ -7,7 +7,6 @@ var googleAuth = require('google-auth-library');
 const express = require('express');
 const bodyParser = require('body-parser');
 const restService = express();
-const http = require('http');
 
 restService.use(bodyParser.urlencoded({
     extended: true
@@ -190,10 +189,9 @@ function getTicketList(auth) {
 
 }
 
-// Server HTTP listener
-   server = http.createServer(restService);
-// restService.listen((process.env.PORT || 5000), function() {
-//     console.log("Server up and listening");
-// });
+// Setup HTTP listener
+restService.listen((process.env.PORT || 5000), function() {
+    console.log("Server up and listening");
+});
 
 
