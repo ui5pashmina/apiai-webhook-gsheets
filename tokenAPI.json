@@ -1,6 +1,7 @@
+// Get OAuth 2.0 Playground -> https://developers.google.com/oauthplayground 
 {
-  "access_token": "ya29.Gls9BO1NGDr_HO7QwoQKvkOQN4i1ydGsJdZkUdsRq9pMdR3NZPh_BH10awgF6jqJwhUe7y2Oc7ljoIR0XyILmTmNl9ltrn7NYQLWJSug2uTGrpPgkV1GX-qqe1_c", 
+  "access_token": "<your_access_token>", 
   "token_type": "Bearer", 
   "expires_in": 3600, 
-  "refresh_token": "1/LY0KaKjVH1a9hnsZnFiwifVHLC9OJAJq-lAfnLKykZE"
+  "refresh_token": "<your_refresh_token>"
 }
