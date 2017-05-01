@@ -8,28 +8,37 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const restService = express();
 
+// var client_key = '319581784556-s0g3ado0l1ipbl88avtkn0f81b6mr77u.apps.googleusercontent.com',
+//     secret_key = 'dCFxkJfrrrRULcyZD6Og81M0',
+//     redirect_uri = 'urn:ietf:wg:oauth:2.0:oob',
+//     oauth2Client = new OAuth2Client(client_key, secret_key, redirect_uri);
+
+
+// var url = oauth2Client.generateAuthUrl({
+//   access_type: 'online', 
+//   scope: 'https://www.googleapis.com/auth/spreadsheets' 
+// });
+
 restService.use(bodyParser.urlencoded({
     extended: true
 }));
 
 restService.use(bodyParser.json());
-restService.set('port', process.env.PORT || 80);
 
 // If modifying these scopes, delete your previously saved credentials
 // at ~/.credentials/sheets.googleapis.com-nodejs-quickstart.json
-var SCOPES = 
-    [
+var SCOPES = [
         'https://www.googleapis.com/auth/drive',
         'https://www.googleapis.com/auth/drive.readonly',
         'https://www.googleapis.com/auth/spreadsheets',
         'https://www.googleapis.com/auth/spreadsheets.readonly'
     ];
 
-var TOKEN_DIR = (process.env.HOME || process.env.HOMEPATH ||
-    process.env.USERPROFILE) + '/.credentials/';
+// var TOKEN_DIR = (process.env.HOME || process.env.HOMEPATH ||
+//     process.env.USERPROFILE) + '/.credentials/';
 
-var TOKEN_PATH = TOKEN_DIR + 'sheets.googleapis.com-nodejs-webhook.json';
-
+// var TOKEN_PATH = TOKEN_DIR + 'sheets.googleapis.com-nodejs-webhook.json';
+   var TOKEN_PATH = "./tokenAPI.json";
   
 // Load client secrets from a local file.
 fs.readFile('client_secret.json', function processClientSecrets(err, content) {
@@ -79,7 +88,7 @@ function authorize(credentials, callback) {
  */
 function getNewToken(oauth2Client, callback) {
   var authUrl = oauth2Client.generateAuthUrl({
-    access_type: 'offline',
+    access_type: 'online',
     scope: SCOPES
   });
   console.log('Authorize this app by visiting this url: ', authUrl);
