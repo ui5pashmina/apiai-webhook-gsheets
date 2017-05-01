@@ -17,6 +17,15 @@ $ npm start
 
 Your app should now be running on [localhost:5000](http://localhost:5000/).
 
+## Deploying to Github
+
+```
+$ git init
+$ git add .
+$ git commit -m "type your commit message here"
+$ git push origin master
+```
+
 ## Deploying to Heroku
 
 ```
