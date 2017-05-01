@@ -1,4 +1,4 @@
-# apiai-webhook-gsheets - Integrate Google Sheets API v4 with NodeJS consuming webhook via API.ai
+# apiai-webhook-gsheets - Integrate Google Sheets API v4 with NodeJS consuming webhook via API.ai Virtual Agent
 
 A barebones Node.js app using [Express 4](http://expressjs.com/).
 
@@ -39,7 +39,7 @@ or
 
 ## How it works?
 
-For more information about how to write Google Spreadsheets using API.ai consuming WebHook Node.js on Heroku, see these prerequisites:
+For more information about how to write Google Spreadsheets using API.ai virtual agent consuming WebHook Node.js on Heroku, see these prerequisites:
 
 - [Google Consle Developer -> Enable Google Sheets API and get credential for NodeJS Application](https://console.developers.google.com)
 - [Google Console Developer -> How to get OAuth 2.0 Playground](https://developers.google.com/oauthplayground)
